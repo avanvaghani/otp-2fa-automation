@@ -1,0 +1,30 @@
+{
+  "name": "otp-2fa-automation",
+  "version": "1.0.0",
+  "description": "OTP/2FA Automation with Playwright & TOTP",
+  "main": "index.js",
+  "scripts": {
+    "start:app": "node demo-app/server.js",
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "report": "npx playwright show-report",
+    "generate-otp": "node utils/generate-otp.js"
+  },
+  "keywords": [
+    "playwright",
+    "otp",
+    "2fa",
+    "totp",
+    "automation"
+  ],
+  "author": "Aevan Vaghani",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@playwright/test": "^1.59.1",
+    "dotenv": "^17.4.2",
+    "qrcode": "^1.5.4",
+    "speakeasy": "^2.0.0"
+  }
+}
