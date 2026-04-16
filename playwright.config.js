@@ -6,7 +6,7 @@ module.exports = defineConfig({
   retries: 0,
   use: {
     browserName: "chromium",
-    headless: false,
+    headless: !!process.env.CI,
     screenshot: "only-on-failure",
     video: "retain-on-failure",
     trace: "retain-on-failure",
