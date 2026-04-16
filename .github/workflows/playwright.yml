@@ -30,11 +30,11 @@ jobs:
           echo "TOTP_SECRET=JBSWY3DPEHPK3PXP" >> .env
           echo "DEMO_APP_PORT=3333" >> .env
 
-      - name: Start demo app
-        run: npm run start:app &
-
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:3333 --timeout 10000
+      - name: Start demo app and wait for server
+        run: |
+          npm run start:app &
+          sleep 3
+          curl --retry 5 --retry-delay 2 --retry-connrefused http://localhost:3333 > /dev/null 2>&1
 
       - name: Run Playwright tests
         run: npm test
